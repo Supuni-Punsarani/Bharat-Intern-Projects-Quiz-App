@@ -6,10 +6,12 @@ import java.awt.event.*;
 
 public class Score extends JFrame implements ActionListener {
     
-    private String name;
+
     private int score;
     
-    Score(String name, int score) {
+    Score( int score) {
+        this.score = score;
+        String name = UserData.getName(); 
         setBounds(400, 150, 750, 550);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
@@ -65,12 +67,15 @@ public class Score extends JFrame implements ActionListener {
     if (ae.getActionCommand().equals("Play Again")) {
         setVisible(false);
         dispose();
-        new Quiz(name).resetQuiz(); // Start a new quiz and reset it
+        new Quiz(UserData.getName()).resetQuiz(); // Start a new quiz and reset it
+    }
+    else if (ae.getActionCommand().equals("Exit")) {
+        System.exit(0);
     }
 }
 
 
     public static void main(String[] args) {
-        new Score("User", 0);
+        new Score( 0);
     }
 }
