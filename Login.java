@@ -1,4 +1,4 @@
-/*
+x/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -66,6 +66,7 @@ public class Login extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == rules) {
             String name = tfname.getText();
+            UserData.setName(name); // Set the name in UserData
             setVisible(false);
             new Rules(name);
         } else if (ae.getSource() == back) {
